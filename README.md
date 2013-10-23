@@ -7,7 +7,8 @@ Base android code for special assignment 2, HCI ITBA Q2 2013
 ##Instructivo de instalación:
 
 * Descargar eclipse kepler
-
+* Descargar el SDK de Android
+[http://developer.android.com/sdk/index.html](http://)
 ###Instalacion de Plugins:
 Repita los siguientes pasos para cada uno de los links listados a continuación:
 
@@ -26,12 +27,20 @@ Repita los siguientes pasos para cada uno de los links listados a continuación:
 [http://repository.tesla.io:8081/nexus/content/sites/m2e.extras/m2eclipse-egit/0.14.0/N/0.14.0.201305250025/](http://)
 * Instalar plugin de android:  
 [https://dl-ssl.google.com/android/eclipse/](http://)
-*Instalar plugin de android-maven (La especializacion de Maven para android):
+* Instalar plugin de android-maven (La especializacion de Maven para android):
 [http://marketplace.eclipse.org/content/android-configurator-m2e#.UmVAmBbmdz8](http://)
 
-Exportar la variable de entorno ANDROID_HOME, que apunte a donde se encuentra el sdk 18 de android. En mi caso:
+#Importante: 
+###Guardar el SDK de Android DENTRO de la carpeta que contiene el eclipse.
 
-	export ANDROID_HOME=/Applications/eclipse/android-sdk/
+
+
+Exportar la variable de entorno ANDROID_HOME, que apunte 
+
+a donde se encuentra el sdk 18 de android. En mi caso:
+
+
+	export ANDROID_HOME=/Applications/eclipse/android-sdks/
 
 Ejecutar este comando parado fuera del workspace
 
@@ -91,6 +100,21 @@ Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene 
       <version>2.2.4</version>
       <scope>compile</scope>
     </dependency>
+    
+    ZXing QR Scanning
+    <dependency>
+		<groupId>com.google.zxing</groupId>
+		<artifactId>android-integration</artifactId>
+		<version>2.2</version>
+	</dependency>
 ##Material Extra:
 Como resolver un conflicto de git en modo grafico, via Egit
 [http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict](http://)
+Documentacion y ejemplos de GSON
+[https://code.google.com/p/google-gson/](http://)
+
+* Ejemplo 1
+[http://stackoverflow.com/questions/5314813/json-gson-fromjson-java-objects](http://)
+
+* Ejemplo 2
+[http://albertattard.blogspot.com.ar/2009/06/practical-example-of-gson.html](http://)

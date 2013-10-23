@@ -10,8 +10,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<platform.version></platform.version>
-		<android.plugin.version>3.7.0</android.plugin.version>
+		<java-version>1.6</java-version>
+		<!-- 
+		La siguiente propiedad no deberia ser necesaria, puede ser comentada.
+		 Caso contrario apuntar a la direccion donde se encuentre el SDK 
+		 -->
+		<android.sdk.path>/Applications/eclipse_kepler/sdk/</android.sdk.path>
 	</properties>
 
 	<dependencies>
@@ -21,35 +25,53 @@
 			<version>4.3</version>
 			<scope>provided</scope>
 		</dependency>
+		 <dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>support-v4</artifactId>
+			<version>r7</version>
+		</dependency>
+		<!-- GSON- JSON to Java Object -->
+		<dependency>
+		  <groupId>com.google.code.gson</groupId>
+		  <artifactId>gson</artifactId>
+		  <version>2.2.4</version>
+		  <scope>compile</scope>
+		</dependency>
+		<!-- QR Scanning Library -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>android-integration</artifactId>
+			<version>2.2</version>
+		</dependency>
 	</dependencies>
 	<scm>
 		<url>https://android.git.kernel.org/</url>
 		<connection>git://android.git.kernel.org/platform/manifest.git</connection>
 	</scm>
 	<build>
-		<finalName>${project.artifactId}</finalName>
-		<sourceDirectory>src</sourceDirectory>		
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>com.jayway.maven.plugins.android.generation2</groupId>
-					<artifactId>android-maven-plugin</artifactId>
-					<version>${android.plugin.version}</version>
-					<extensions>true</extensions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
-				<artifactId>android-maven-plugin</artifactId>
-				<configuration>
-					<sdk>
-					    <!-- platform or api level (api level 17 = platform 4.2)-->
-						<platform>18</platform>
-					</sdk>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+        <finalName>${project.artifactId}</finalName>
+        <sourceDirectory>src</sourceDirectory>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                    <artifactId>android-maven-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <configuration>
+                    <sdk>
+                        <!-- platform or api level (api level 17 = platform 4.2)-->
+                        <platform>18</platform>
+                    </sdk>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
