@@ -63,7 +63,7 @@ Ir a proyect properties>configure>convert to maven proyect
 
 reemplazar version en el pom por
 
-	<version>18</version>
+	<version>4.3</version>
 	
 Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene el pom.xml
 

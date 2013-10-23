@@ -11,19 +11,24 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<platform.version></platform.version>
-		<android.plugin.version>3.6.0</android.plugin.version>
+		<android.plugin.version>3.7.0</android.plugin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
-			<version>18</version>
+			<version>4.3</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<scm>
+		<url>https://android.git.kernel.org/</url>
+		<connection>git://android.git.kernel.org/platform/manifest.git</connection>
+	</scm>
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		<sourceDirectory>src</sourceDirectory>		
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -40,6 +45,7 @@
 				<artifactId>android-maven-plugin</artifactId>
 				<configuration>
 					<sdk>
+					    <!-- platform or api level (api level 17 = platform 4.2)-->
 						<platform>18</platform>
 					</sdk>
 				</configuration>
