@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='10'>
+    <iu id='me.gladwell.eclipse.m2e.android.feature.feature.group' name='Android Configurator for M2E' version='0.4.3'>
+      <repositories size='1'>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='com.android.ide.eclipse.ddms.feature.group' name='Android DDMS' version='22.2.1.v201309180102-833290'>
+      <repositories size='2'>
+        <repository location='https://dl-ssl.google.com/android/eclipse/'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='com.android.ide.eclipse.adt.feature.group' name='Android Development Tools' version='22.2.1.v201309180102-833290'>
+      <repositories size='2'>
+        <repository location='https://dl-ssl.google.com/android/eclipse/'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='com.android.ide.eclipse.hierarchyviewer.feature.group' name='Android Hierarchy Viewer' version='22.2.1.v201309180102-833290'>
+      <repositories size='2'>
+        <repository location='https://dl-ssl.google.com/android/eclipse/'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='com.android.ide.eclipse.traceview.feature.group' name='Android Traceview' version='22.2.1.v201309180102-833290'>
+      <repositories size='2'>
+        <repository location='https://dl-ssl.google.com/android/eclipse/'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.egit.feature.group' name='Eclipse Git Team Provider' version='3.1.0.201310021548-r'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/egit/updates'/>
+      </repositories>
+    </iu>
+    <iu id='epp.package.standard' name='Eclipse Standard/SDK' version='2.0.1.20130919-0803'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/kepler'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2e.feature.feature.group' name='m2e - Maven Integration for Eclipse' version='1.4.0.20130601-0317'>
+      <repositories size='3'>
+        <repository location='http://download.eclipse.org/technology/m2e/releases'/>
+        <repository location='http://download.eclipse.org/releases/kepler'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.m2e.logback.feature.feature.group' name='m2e - slf4j over logback logging (Optional)' version='1.4.0.20130601-0317'>
+      <repositories size='3'>
+        <repository location='http://download.eclipse.org/technology/m2e/releases'/>
+        <repository location='http://download.eclipse.org/releases/kepler'/>
+        <repository location='http://rgladwell.github.com/m2e-android/updates/'/>
+      </repositories>
+    </iu>
+    <iu id='org.eclipse.egit.mylyn.feature.group' name='Task focused interface for Eclipse Git Team Provider' version='3.1.0.201310021548-r'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/egit/updates'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>
