@@ -4,11 +4,94 @@ HCIQ2GX-BASE
 Base android code for special assignment 2, HCI ITBA Q2 2013
 
 
-##Instructivo de instalación:
+#Instructivo de instalación:
+* [Descargue](http://www.genuitec.com/sdc/cloud/install/2851-dza-4943) el eclipse customizado con todos los plugins que necesitaremos incorporado **(300MB)**
+
+**Observación:** En mac no funciona desde el chrome, usar safari, debe tener java 7 instalado.
+
+Una vez finalizada la descarga tendra una version de eclipse preconfigurada,
+cuando se abra el eclipse en el marco inferior derecho haga click en "configure workspace" dejando que la herramienta termine de descargar el material necesario a su eclipse.**Tenga en cuenta que este eclipse sera utilizado durante todo el desarrollo y sera una instalacion distinta a cualquier otro eclipse que ya tenga instalado**
+
+
+* [Descargue](http://developer.android.com/sdk/index.html) el SDK de Android **(72MB)**. Necesitará solo el SDK asi que vaya donde indica "Use an existing IDE" y a continuación "Download SDK Tools" para su sistema operativo. Ubique la carpeta **EN EL MISMO DIRECTORIO QUE EL ECLIPSE**.
+ * Exportar la variable de entorno **ANDROID_HOME**, que apunte a donde se encuentra el sdk 18 de android. En mi caso use el siguiente comando de **consola**:
+
+
+		export ANDROID_HOME=/Applications/eclipse/android-sdks/
+	Verifique que fue exportada exitosamente mediante el comado **ls $ANDROID_HOME** deberia encontrar las siguientes carpetas `add-ons		build-tools	extras		platform-tools	platforms	system-images	temp		tools`
+* Clone este repositorio de github a una ubicación **EXTERNA** a su workspace.
+* Con el Eclipse abierto hacer desde la barra de herramientas 
+
+		File > Import> Existing android code into workspace 
+		
+	Apuntando a la carpeta que contiene el repositorio clonado.
+	
+###Hasta ahora tenemos:
+* Eclipse con todos los plugins que vamos a necesitar
+* SDK de android ubicado en el mismo directorio del eclipse y su correspondiente variable de entorno **ANDROID_HOME**
+* Un workspace con este repositorio clonado e importado en el eclipse
+* El ícono del proyecto de eclipse debera verse así:
+	![My image](https://github.com/jugutier/HCIQ2GX-BASE/guia/jpg). Lo que indica que eclipse lo reconoce como git, maven y android. Que son los tres plugins que necesitamos.
+* El proyecto sin errores 
+	* Para verificarlo abra desde el eclipse **pom.xml** y haga click en 
+								
+			play> maven clean y luego maven install
+		 verá como se descargan las librerias externas desde la consola de eclipse).
+*  Si tiene algun error consulte la sección de **Solución de errores**
+
+###Faltan algunos detalles:
+Notará una nueva barra de herramientas en el eclipse. Abra en **Android SDK Manager**.
+Verá un menu como [éste](http://developer.android.com/tools/help/sdk-manager.html). Tilde y descargue **TODO** el contenido correspondiente al **API 18**. Tenga en cuenta que para el deploy a los dispositivos del laboratorio estaremos usando tambien el contenido del **API 14**, por ahora no descargue ese contenido. Lo hablaremos durante el taller.  
+
+######Necesitamos configurar el emulador:
+De la nueva barra del eclipse abra el [AVD](http://developer.android.com/tools/devices/managing-avds.html) (El ícono de al lado del que acabamos de usar). Presione new y en el menu emergente pondremos lo siguiente:
+
+* AVD Name: HCI-Phone
+* Device: Nexus 4
+* Target Android 4.3 (Deberia ser la unica opcion del menu por ahora)
+* Los dos checkbox tildados
+* Front Camara:None
+* Back Camera: Webcam si posee o Emulated sino.
+* Al menos **2Gb** de **RAM**. Tenga en cuenta que se usara a demanda, es decir que es un máximo, no que ocupará ese espacio siempre.
+* Internal Storage **200Mb** 
+* SD Card **200Mb**. El mismo criterio de máximo aplica para estos dos puntos.
+* Emulation options: Tilde la opción **Snapshot**
+
+Presione **OK**. Debera esperar un tiempo hasta que se cree el dispositivo.
+
+
+#Listo!
+=======
+###Solución de errores:
+#####Maven no detecta el SDK
+Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene el **pom.xml** aseugrandose de que el path efectivamente contiene el archivo mencionado.
+
+	mvn install:install-file \
+	 -Dfile=$ANDROID_HOME/platforms/android-18/android.jar \
+	-DgroupId=com.google.android \
+	-DartifactId=android \
+	-Dversion=4.3 \
+	-Dpackaging=jar \
+	-DgeneratePom=true
+
+###Material Extra:
+* [Como resolver un conflicto de git en modo grafico](http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict), via **Egit**
+
+
+* [Documentación oficial](https://code.google.com/p/google-gson/) y ejemplos de GSON
+
+	* [Ejemplo 1](http://stackoverflow.com/questions/5314813/json-gson-fromjson-java-objects)
+
+	* [Ejemplo 2](http://albertattard.blogspot.com.ar/2009/06/practical-example-of-gson.html)
+	* [Ejemplo 3](http://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/)
+
+============
+#Pasos con los que cree el material de este repositorio:
+
+
 
 * Descargar eclipse kepler
-* Descargar el SDK de Android
-[http://developer.android.com/sdk/index.html](http://)
+* [Descargar](http://developer.android.com/sdk/index.html) el SDK de Android
 ###Instalacion de Plugins:
 Repita los siguientes pasos para cada uno de los links listados a continuación:
 
@@ -35,9 +118,9 @@ Repita los siguientes pasos para cada uno de los links listados a continuación:
 
 
 
-Exportar la variable de entorno ANDROID_HOME, que apunte 
+Exportar la variable de entorno **ANDROID_HOME**, que apunte 
 
-a donde se encuentra el sdk 18 de android. En mi caso:
+a donde se encuentra el sdk 18 de android. En mi caso use el siguiente comando de consola:
 
 
 	export ANDROID_HOME=/Applications/eclipse/android-sdks/
@@ -53,11 +136,11 @@ Ejecutar este comando parado fuera del workspace
 	-Dplatform=18
 
 
-  Fuente: [http://stand.spree.de/wiki_details_maven_archetypes](http://)
+  **Fuente:** [http://stand.spree.de/wiki_details_maven_archetypes](http://)
 
 Desde el eclipse hacer 
 
-	file>import>existing android code into workspace 
+	File > Import> Existing android code into workspace 
 
 y apuntarle a la carpeta "hci-application" que genero la ejecucion del comando anterior
   Observacion: tildar la casilla "copy code into workspace"
@@ -66,7 +149,7 @@ Ir a
 
 	 proyect properties>Android Target= Android 4.3
 
-Por ahora no: Cambiar el path a la actividad principal en el manifest
+
 
 Ir a proyect properties>configure>convert to maven proyect
 
@@ -107,14 +190,3 @@ Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene 
 		<artifactId>android-integration</artifactId>
 		<version>2.2</version>
 	</dependency>
-##Material Extra:
-Como resolver un conflicto de git en modo grafico, via Egit
-[http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict](http://)
-Documentacion y ejemplos de GSON
-[https://code.google.com/p/google-gson/](http://)
-
-* Ejemplo 1
-[http://stackoverflow.com/questions/5314813/json-gson-fromjson-java-objects](http://)
-
-* Ejemplo 2
-[http://albertattard.blogspot.com.ar/2009/06/practical-example-of-gson.html](http://)
