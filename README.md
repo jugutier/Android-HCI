@@ -31,7 +31,7 @@ cuando se abra el eclipse en el marco inferior derecho haga click en "configure 
 * SDK de android ubicado en el mismo directorio del eclipse y su correspondiente variable de entorno **ANDROID_HOME**
 * Un workspace con este repositorio clonado e importado en el eclipse
 * El ícono del proyecto de eclipse debera verse así:
-	![My image](https://github.com/jugutier/HCIQ2GX-BASE/guia/jpg). Lo que indica que eclipse lo reconoce como git, maven y android. Que son los tres plugins que necesitamos.
+	![My image](https://raw.github.com/jugutier/HCIQ2GX-BASE/master/guia.jpg). Lo que indica que eclipse lo reconoce como git, maven y android. Que son los tres plugins que necesitamos.
 * El proyecto sin errores 
 	* Para verificarlo abra desde el eclipse **pom.xml** y haga click en 
 								
