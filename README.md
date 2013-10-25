@@ -1,25 +1,28 @@
 HCIQ2GX-BASE
 ============
 
-Base android code for special assignment 2, HCI ITBA Q2 2013
+Código base para el TPE2-Android, HCI ITBA Q2 2013
 
 
 #Instructivo de instalación:
-* [Descargue](http://www.genuitec.com/sdc/cloud/install/2851-dza-4943) el eclipse customizado con todos los plugins que necesitaremos incorporado **(300MB)**
+* [Descargue](http://www.genuitec.com/sdc/cloud/install/2851-dza-4943) el eclipse customizado con todos los plugins que necesitaremos. **(300MB)**
 
-**Observación:** En mac no funciona desde el chrome, usar safari, debe tener java 7 instalado.
+**Observación:** En Mac no funciona desde Chrome, usar Safari, debe tener Java 7 instalado.
 
 Una vez finalizada la descarga tendra una version de eclipse preconfigurada,
-cuando se abra el eclipse en el marco inferior derecho haga click en "configure workspace" dejando que la herramienta termine de descargar el material necesario a su eclipse.**Tenga en cuenta que este eclipse sera utilizado durante todo el desarrollo y sera una instalacion distinta a cualquier otro eclipse que ya tenga instalado**
+cuando se abra el eclipse en el marco inferior derecho haga click en "configure workspace" dejando que la herramienta termine de descargar el material necesario.**Tenga en cuenta que este eclipse sera utilizado durante todo el desarrollo y sera una instalacion distinta a cualquier otro eclipse que ya tenga instalado**
 
 
 * [Descargue](http://developer.android.com/sdk/index.html) el SDK de Android **(72MB)**. Necesitará solo el SDK asi que vaya donde indica "Use an existing IDE" y a continuación "Download SDK Tools" para su sistema operativo. Ubique la carpeta **EN EL MISMO DIRECTORIO QUE EL ECLIPSE**.
- * Exportar la variable de entorno **ANDROID_HOME**, que apunte a donde se encuentra el sdk 18 de android. En mi caso use el siguiente comando de **consola**:
+ * Exportar la variable de entorno **ANDROID_HOME** para que apunte a donde se encuentra el **SDK** descargado en el paso anterior. En mi caso use el siguiente comando de **consola**:
 
 
 		export ANDROID_HOME=/Applications/eclipse/android-sdks/
 	Verifique que fue exportada exitosamente mediante el comado **ls $ANDROID_HOME** deberia encontrar las siguientes carpetas `add-ons		build-tools	extras		platform-tools	platforms	system-images	temp		tools`
-* Clone este repositorio de github a una ubicación **EXTERNA** a su workspace.
+* **Clone** este repositorio de github y extraigalo a una ubicación **EXTERNA** a su workspace. De ser posible busque alguna forma de añadir el contenido de este repositorio a una carpeta dentro de su actual repositorio git. **Recuerde que la engrega sera en el mismo repositorio que el TPE1**. 
+
+``Si opta por clonar recuerde no pushear los cambios que genere a este repositorio, ya que entraran en conflico con los demás grupos.``
+
 * Con el Eclipse abierto hacer desde la barra de herramientas 
 
 		File > Import> Existing android code into workspace 
@@ -31,20 +34,20 @@ cuando se abra el eclipse en el marco inferior derecho haga click en "configure 
 * SDK de android ubicado en el mismo directorio del eclipse y su correspondiente variable de entorno **ANDROID_HOME**
 * Un workspace con este repositorio clonado e importado en el eclipse
 * El ícono del proyecto de eclipse debera verse así:
-	![My image](https://raw.github.com/jugutier/HCIQ2GX-BASE/master/guia.jpg). Lo que indica que eclipse lo reconoce como git, maven y android. Que son los tres plugins que necesitamos.
+	![My image](https://raw.github.com/jugutier/HCIQ2GX-BASE/master/guia.jpg). Lo que indica que eclipse lo reconoce como Git, Maven y Android. Que son los tres plugins que necesitamos.
 * El proyecto sin errores 
 	* Para verificarlo abra desde el eclipse **pom.xml** y haga click en 
 								
 			play> maven clean y luego maven install
-		 verá como se descargan las librerias externas desde la consola de eclipse).
+		 verá como se descargan las librerias externas desde la consola de eclipse.
 *  Si tiene algun error consulte la sección de **Solución de errores**
 
 ###Faltan algunos detalles:
 Notará una nueva barra de herramientas en el eclipse. Abra en **Android SDK Manager**.
-Verá un menu como [éste](http://developer.android.com/tools/help/sdk-manager.html). Tilde y descargue **TODO** el contenido correspondiente al **API 18**. Tenga en cuenta que para el deploy a los dispositivos del laboratorio estaremos usando tambien el contenido del **API 14**, por ahora no descargue ese contenido. Lo hablaremos durante el taller.  
+Verá un menú como [este](http://developer.android.com/tools/help/sdk-manager.html). Tilde y descargue **TODO** el contenido correspondiente al **API 18**. Tenga en cuenta que para el deploy a los dispositivos del laboratorio estaremos usando tambien el contenido del **API 15**, por ahora no descargue ese contenido. Lo hablaremos durante el taller.  
 
 ######Necesitamos configurar el emulador:
-De la nueva barra del eclipse abra el [AVD](http://developer.android.com/tools/devices/managing-avds.html) (El ícono de al lado del que acabamos de usar). Presione new y en el menu emergente pondremos lo siguiente:
+De la nueva barra del eclipse abra el [AVD](http://developer.android.com/tools/devices/managing-avds.html) (Se encuentra al lado del que acabamos de usar). Presione new y en el menu emergente ingresar los siguientes datos:
 
 * AVD Name: HCI-Phone
 * Device: Nexus 4
@@ -67,7 +70,7 @@ Presione **OK**. Debera esperar un tiempo hasta que se cree el dispositivo.
 Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene el **pom.xml** aseugrandose de que el path efectivamente contiene el archivo mencionado.
 
 	mvn install:install-file \
-	 -Dfile=$ANDROID_HOME/platforms/android-18/android.jar \
+	-Dfile=$ANDROID_HOME/platforms/android-18/android.jar \
 	-DgroupId=com.google.android \
 	-DartifactId=android \
 	-Dversion=4.3 \
