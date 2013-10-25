@@ -18,6 +18,7 @@ cuando se abra el eclipse en el marco inferior derecho haga click en "configure 
 
 
 		export ANDROID_HOME=/Applications/eclipse/android-sdks/
+		
 	Verifique que fue exportada exitosamente mediante el comado **ls $ANDROID_HOME** deberia encontrar las siguientes carpetas `add-ons		build-tools	extras		platform-tools	platforms	system-images	temp		tools`
 * **Clone** este repositorio de github y extraigalo a una ubicación **EXTERNA** a su workspace. De ser posible busque alguna forma de añadir el contenido de este repositorio a una carpeta dentro de su actual repositorio git. **Recuerde que la engrega sera en el mismo repositorio que el TPE1**. 
 
