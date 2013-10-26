@@ -10,21 +10,29 @@ Código base para el TPE2-Android, HCI ITBA Q2 2013
 **Observación:** En Mac no funciona desde Chrome, usar Safari, debe tener Java 7 instalado.
 
 Una vez finalizada la descarga tendra una version de eclipse preconfigurada,
-cuando se abra el eclipse en el marco inferior derecho haga click en "configure workspace" dejando que la herramienta termine de descargar el material necesario.**Tenga en cuenta que este eclipse sera utilizado durante todo el desarrollo y sera una instalacion distinta a cualquier otro eclipse que ya tenga instalado**
+cuando se abra el eclipse en el marco inferior derecho haga click en "configure workspace" dejando que la herramienta termine de descargar el material necesario.**Tenga en cuenta que este eclipse sera utilizado durante todo el desarrollo y sera una instalacion distinta a cualquier otro eclipse que ya tenga instalado TODAVIA NO LO ABRA**
 
 
-* [Descargue](http://developer.android.com/sdk/index.html) el SDK de Android **(72MB)**. Necesitará solo el SDK asi que vaya donde indica "Use an existing IDE" y a continuación "Download SDK Tools" para su sistema operativo. Ubique la carpeta **EN EL MISMO DIRECTORIO QUE EL ECLIPSE**.
- * Exportar la variable de entorno **ANDROID_HOME** para que apunte a donde se encuentra el **SDK** descargado en el paso anterior. En mi caso use el siguiente comando de **consola**:
+* [Descargue](http://developer.android.com/sdk/index.html) el SDK de Android **(72MB)**. Necesitará solo el SDK asi que vaya donde indica "Use an existing IDE" y a continuación "Download SDK Tools" para su sistema operativo. Ubique la carpeta **EN EL MISMO DIRECTORIO QUE EL ECLIPSE, USE EL NOMBRE DE CARPETA "sdk"**.
+ * Exportar al path del SO la variable de entorno **ANDROID_HOME** para que apunte a donde se encuentra el **SDK** descargado en el paso anterior. En mi caso use los siguientes comando de **consola Linux/Mac** (En su caso debera modificar la primer linea para que apunte al path correcto):
 
 
-		export ANDROID_HOME=/Applications/eclipse/android-sdks/
+			echo "export ANDROID_HOME=/Applications/eclipse_kepler/sdk/" >> ~/.bash_profile
+			echo "export PATH=$PATH:$ANDROID_HOME" >> ~/.bash_profile
+			echo "export PATH=$PATH:$ANDROID_HOME/platform-tools" >> ~/.bash_profile
+			echo "export PATH=$PATH:$ANDROID_HOME/tools" >> ~/.bash_profile
+			. ~/.bash_profile 
 		
-	Verifique que fue exportada exitosamente mediante el comado **ls $ANDROID_HOME** deberia encontrar las siguientes carpetas `add-ons		build-tools	extras		platform-tools	platforms	system-images	temp		tools`
+	Verifique que fue exportada exitosamente mediante los comado **ls $ANDROID_HOME** deberia encontrar las siguientes carpetas `add-ons		build-tools	extras		platform-tools	platforms	system-images	temp		tools`
+	Y **echo $PATH** donde se listaran todos los directorios donde el SO busca por default, entre ellos deberian estar los paths que acabamos de añadir. Si no es asi, edite manualmente el archivo de configuracion mediante
+	 
+		vim ~/.bash_profile 
+		. ~/.bash_profile #Este es necesario para que se tomen los cambios
 * **Clone** este repositorio de github y extraigalo a una ubicación **EXTERNA** a su workspace. De ser posible busque alguna forma de añadir el contenido de este repositorio a una carpeta dentro de su actual repositorio git. **Recuerde que la engrega sera en el mismo repositorio que el TPE1**. 
 
 ``Si opta por clonar recuerde no pushear los cambios que genere a este repositorio, ya que entraran en conflico con los demás grupos.``
 
-* Con el Eclipse abierto hacer desde la barra de herramientas 
+* Ahora si, Con el Eclipse abierto hacer desde la barra de herramientas 
 
 		File > Import> Existing android code into workspace 
 		
@@ -77,6 +85,12 @@ Ejecutar el siguiente comando en consola, situado sobre la carpeta que contiene 
 	-Dversion=4.3 \
 	-Dpackaging=jar \
 	-DgeneratePom=true
+#####Eclipse no me lo detecta como proyecto Maven
+	Click derecho sobre la raiz del proyecto> Configure> Convert to Maven proyect
+	
+#####Hacer un Maven Install dice que todavia no encuentra com.google.android:android.jar:4.3
+
+	Revisa que el path al SDK este bien en el pom.xml tambien.
 
 ###Material Extra:
 * [Como resolver un conflicto de git en modo grafico](http://wiki.eclipse.org/EGit/User_Guide#Resolving_a_merge_conflict), via **Egit**
