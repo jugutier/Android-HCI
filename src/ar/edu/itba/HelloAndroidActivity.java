@@ -20,10 +20,9 @@ public class HelloAndroidActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-	// Inflate the menu; this adds items to the action bar if it is present.
-	getMenuInflater().inflate(ar.edu.itba.R.menu.main, menu);
-	return true;
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(ar.edu.itba.R.menu.main, menu);
+        return true;
     }
 
 }
-

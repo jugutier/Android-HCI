@@ -12,8 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <activity android:name=".HelloAndroidActivity" >
+        android:theme="@style/AppTheme" >
+        <activity android:name="ar.edu.itba.HelloAndroidActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
