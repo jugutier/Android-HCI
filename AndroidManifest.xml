@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="18" />
+     <uses-permission android:name="android.permission.INTERNET" /> 
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,26 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="ar.edu.itba.ProductActivity"
+            android:label="@string/title_activity_product"
+            android:parentActivityName="ar.edu.itba.HelloAndroidActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ar.edu.itba.HelloAndroidActivity" />
+        </activity>
+        <activity
+            android:name="ar.edu.itba.ItemListActivity"
+            android:label="@string/title_item_list" >
+        </activity>
+        <activity
+            android:name="ar.edu.itba.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ItemListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ItemListActivity" />
         </activity>
     </application>
 
